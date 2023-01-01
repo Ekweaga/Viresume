@@ -2,11 +2,38 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import Navbar from "../components/Navbar"
+import Contact from "../components/Contact"
 
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const steps = 
+  [
+    {
+      title:"Create an account",
+      desc:"You need to create an account. You can do this by clicking on the Sign up button above.",
+      number:1,
+      icon:"/user-plus.png"
+    },{
+      title:"Choose a theme",
+      desc:"Vertical, short or long. We give you the control to make your video resume. We’ve more than 150+ themes.",
+      number:2,
+      icon:"/user-plus (1).png"
+    },{
+      title:"Edit on the web",
+      desc:"Add your video clip(s), texts, decoration and effects. All these can be done on the web.",
+      number:3,
+      icon:"/film.png"
+    },
+    {
+      title:"Ready to fly",
+      desc:"Add your video clip(s), texts, decoration and effects. All these can be done on the web.",
+      number:3,
+      icon:"/film.png"
+    }
+  ]
   return (
     <>
       <Head>
@@ -16,6 +43,236 @@ export default function Home() {
         <link rel="icon" href="/Group 8.png" />
       </Head>
     <Navbar/>
+
+
+    <header className='mt-[50px] bg-[#F8FBFE]'>
+      <div className='flex justify-around p-3'>
+        <div className='mt-[40px]'>
+          <h5 className='text-[#A4E2FE] font-bold mb-[10px]'>Stand out of the crowd</h5>
+          <div>
+            <h1 className='text-4xl text-[#010D82] font-bold leading-[45px]'>Create the Next Gen <br/><span>Job Resume</span></h1>
+
+            <p className='text-sm mt-[20px] w-[250px] text-[#A1A4B6]'>Get hired quickly by giving your resume the look it deserves</p>
+          </div>
+          <div className='mt-[30px]'>
+      <button className='shadow-md shadow-blue-700 bg-[#010D82] text-white p-2 rounded-md w-[150px]'>Get Started</button>
+          </div>
+        </div>
+        <div>
+          <Image src="/Group 7.png" width={600} height={300} alt="icon"/>
+        </div>
+      </div>
+    </header>
+
+
+    <div className="Brands flex items-center justify-center">
+      <div className='flex gap-[20px]'>
+        <div>
+          <Image src="/Black and White Collection 7.png" width={100} height={100} alt="icon"/>
+        </div>
+        <div>
+        <Image src="/Black and White Collection 10.png" width={100} height={100} alt="icon"/>
+        </div>
+        <div>
+        <Image src="/Black and White Collection 12.png" width={100} height={100} alt="icon"/>
+        </div>
+        <div>
+        <Image src="/Black and White Collection 17.png" width={100} height={100} alt="icon"/>
+        </div>
+        <div>
+        <Image src="/Black and White Collection 20.png" width={100} height={100} alt="icon"/>
+        </div>
+        <div>
+        <Image src="/Black and White Collection 7.png" width={100} height={100} alt="icon"/>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div className='Started mt-[50px] h-[600px] '>
+      <div className='flex justify-around p-3 align-items-center'>
+      <div>
+        <h3  className='text-[#A4E2FE] font-extrabold mb-[10px]'>Simple steps to glory</h3>
+        <h1 className='text-2xl text-[#010D82] font-extrabold leading-[45px]'>How to get Started?</h1>
+        <div className='relative'>
+          <div className='absolute top-[60px] -right-[150px]'>
+          <Image src="/Group 10.png" width={300} height={400} alt="icon"/>
+          </div>
+          <div className='absolute -bottom-[80px] -right-[100px]'>
+          <Image src="/Group 13.png" width={250} height={400} alt="icon"/>
+          </div>
+          <Image src="/Group 9.png" width={350} height={400} alt="icon"/>
+        </div>
+      </div>
+
+      <div className='grid grid-cols-2 gap-3'>
+     {
+      steps.map((item,index)=>{
+        return(
+          <div className='h-[200px] w-[200px] shadow-lg shadow-[#E4E8F4] bg-white p-3 relative' key={index}>
+            <div className='absolute right-0 -top-[10px] bg-[#DEF5FF] rounded-full p-2 w-[20px] h-[30px] flex items-center justify-center'>{item.number}</div>
+            <div className="bg-[#DEF5FF] p-[2px] w-[30px] flex items-center justify-center"><Image src={item.icon} width={15} height={15} alt="icon"/></div>
+            <h1 className='text-[#010D82] font-bold mt-[30px]'>{item.title}</h1>
+            <p className='text-sm mt-[20px]'>{item.desc}</p>
+          </div>
+        )
+      })
+     }
+
+      </div>
+
+      </div>
+     
+
+
+
+    </div>
+
+
+    <div>
+    <div className='flex justify-around p-3 align-items-center mt-[50px] h-[650px] '>
+
+      <div>
+      <h3  className='text-[#A4E2FE] font-extrabold mb-[10px]'>We are on a mission</h3>
+        <h1 className='text-2xl text-[#010D82] font-extrabold leading-[45px]'>About Visume</h1>
+        <h4 className='text-1xl text-[#010D82] mt-[20px] '>Trusted by people around <span className='text-[#F8BDBF] font-extrabold'>38 countries</span></h4>
+        <p className='w-[450px] mt-[20px] text-sm'>With the Gen Z going the video way, the future rectruitement is going to be through video resumes. It saves the HR people a ton of time in screening profiles. And it makes it more human to  present themseleves than plain texts for the employees.
+
+. </p>
+<p className='w-[450px]  text-sm mt-[40px]'>With 20+ years on the video production industry, you’re on the right hands</p>
+<div className='mt-[30px]'>
+      <button className='shadow-md shadow-blue-700 bg-[#010D82] text-white p-2 rounded-md w-[150px]'>Get Started</button>
+          </div>
+      </div>
+
+    <div>
+        
+        <div className='relative'>
+          
+          <div className='absolute top-[120px] -left-[100px]'>
+          <Image src="/Group 13 (1).png" width={250} height={400} alt="icon"/>
+          </div>
+          <Image src="/Group 18.png" width={300} height={400} alt="icon"/>
+        </div>
+      </div>
+      
+
+    </div>
+    </div>
+
+    <div className='bg-white'>
+    <div className='flex justify-around p-3  mt-[0px] h-[650px] flex-col  w-[80%] mx-auto'>
+    <div><h3  className='text-[#A4E2FE] font-extrabold mb-0'>Pricing</h3>
+        <h1 className='text-2xl text-[#010D82] font-extrabold leading-[45px]'>How much to pay</h1>
+        <h4 className='text-1xl  mt-[10px] '>You can choose the most app pricing option for your needs.</h4></div>
+
+        <div className='flex gap-[20px] items-center justify-center'>
+
+          <div className='h-[400px] w-[250px] border-[1px] border-[#010D82] bg-[#F8FBFE] items-center justify-center flex flex-col '>
+            <div className='flex flex-col items-center justify-center'>
+              <h2 className='font-bold text-[#010D82]'>Basic</h2>
+              <div className='flex flex-col items-center justify-center'>
+                <h3 className='text-[#66CFFF] text-2xl'>$8</h3>
+                <p className='text-[#010D82] text-sm'>per project</p>
+              </div>
+              <hr/>
+              <ul className='flex flex-col items-center justify-center gap-[10px] text-sm text-[#010D82] mt-[30px]'>
+                <li>
+                  20 themes
+                </li>
+                <li>
+                  60 music files
+                </li>
+                <li>
+                  80 audio effects
+                </li>
+                 <li>
+                  8 language support
+                </li>
+                <li>
+                 Email support
+                </li>
+              </ul>
+              <div><button className='bg-white border-[1px] border-[#010D82] p-2 mt-[30px] w-[150px] rounded-md shadow-lg shadow-[#E4E8F4] text-sm'>Get Started</button></div>
+            </div>
+
+          </div>
+
+
+
+
+
+
+          <div className='h-[400px] w-[250px] border-[1px] border-[#010D82] text-white items-center justify-center flex flex-col bg-[#010D82] '>
+            <div className='flex flex-col items-center justify-center'>
+              <h2 className='font-bold text-white'>All Rounder</h2>
+              <div className='flex flex-col items-center justify-center'>
+                <h3 className='text-[#66CFFF] text-2xl'>$12</h3>
+                <p className='text-white text-sm'>per project</p>
+              </div>
+              <hr/>
+              <ul className='flex flex-col items-center justify-center gap-[10px] text-sm text-white mt-[30px]'>
+                <li>
+                  20 themes
+                </li>
+                <li>
+                  60 music files
+                </li>
+                <li>
+                  80 audio effects
+                </li>
+                 <li>
+                  8 language support
+                </li>
+                <li>
+                 Email support
+                </li>
+              </ul>
+              <div><button className='bg-white border-[1px] border-[#010D82] p-2 mt-[30px] w-[150px] rounded-md text-[#010D82] text-sm'>Get Started</button></div>
+            </div>
+
+          </div>
+
+          <div className='h-[400px] w-[250px] border-[1px] border-[#010D82] bg-[#F8FBFE] items-center justify-center flex flex-col shadow-lg shadow-[#E4E8F4] '>
+            <div className='flex flex-col items-center justify-center'>
+              <h2 className='font-bold text-[#010D82]'>Basic</h2>
+              <div className='flex flex-col items-center justify-center'>
+                <h3 className='text-[#66CFFF] text-2xl'>$8</h3>
+                <p className='text-[#010D82] text-sm'>per project</p>
+              </div>
+              <hr/>
+              <ul className='flex flex-col items-center justify-center gap-[10px] text-sm text-[#010D82] mt-[30px]'>
+                <li>
+                  20 themes
+                </li>
+                <li>
+                  60 music files
+                </li>
+                <li>
+                  80 audio effects
+                </li>
+                 <li>
+                  8 language support
+                </li>
+                <li>
+                 Email support
+                </li>
+              </ul>
+              <div><button className='bg-white border-[1px] border-[#010D82] p-2 mt-[30px] w-[150px] rounded-md shadow-lg shadow-[#E4E8F4] text-sm'>Get Started</button></div>
+            </div>
+
+          </div>
+
+
+    </div>
+    </div>
+
+    
+    </div>
+
+
+    <Contact/>
 
      
     </>
