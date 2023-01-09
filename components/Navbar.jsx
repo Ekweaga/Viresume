@@ -10,14 +10,14 @@ function Navbar() {
 
     </div>
     <div>
-        <ul className='flex gap-[20px]'>
+        <ul className='md:flex gap-[20px] hidden'>
             <li>About</li>
             <li>Pricing</li>
             <li>Testimonials</li>
             <li>Blog</li>
         </ul>
     </div>
-    <div className='flex gap-[20px] align-items-center justify-items-center'>
+    <div className='md:flex gap-[20px] align-items-center justify-items-center hidden'>
         <button className='bg-transparent p-2 rounded-md w-[100px]'>Sign in</button>
         <button className='bg-[#010D82] text-white p-2 rounded-md w-[100px]'>Sign up</button>
     </div>

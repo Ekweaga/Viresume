@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import Navbar from "../components/Navbar"
 import Contact from "../components/Contact"
+import Footer from "../components/Footer"
+import { motion } from "framer-motion"
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -45,28 +47,32 @@ export default function Home() {
     <Navbar/>
 
 
-    <header className='mt-[50px] bg-[#F8FBFE]'>
-      <div className='flex justify-around p-3'>
+    <header className='md:mt-[50px] bg-[#F8FBFE]'>
+      <div className='flex justify-around p-3 flex-col md:flex-row'>
         <div className='mt-[40px]'>
           <h5 className='text-[#A4E2FE] font-bold mb-[10px]'>Stand out of the crowd</h5>
           <div>
-            <h1 className='text-4xl text-[#010D82] font-bold leading-[45px]'>Create the Next Gen <br/><span>Job Resume</span></h1>
+            <h1 className='text-4xl text-[#010D82] font-bold leading-[45px]'>Create the Next Gen <br/><span className='relative'>
+              <span className="absolute bottom-0 left-0 mt-[10px]"><Image src="/path2987.png" width={180} height={50} alt="icon"/></span>
+              Job Resume
+
+              </span></h1>
 
             <p className='text-sm mt-[20px] w-[250px] text-[#A1A4B6]'>Get hired quickly by giving your resume the look it deserves</p>
           </div>
           <div className='mt-[30px]'>
-      <button className='shadow-md shadow-blue-700 bg-[#010D82] text-white p-2 rounded-md w-[150px]'>Get Started</button>
+      <motion.button className='shadow-md shadow-blue-700 bg-[#010D82] text-white p-2 rounded-md w-[150px]' animate={{y:0}} initial={{y:'-100vw'}} transition={{delay:5}}>Get Started</motion.button>
           </div>
         </div>
-        <div>
+        <motion.div animate={{x:0}} initial={{x:"100vw"}} transition={{type:'spring',stiffness:300,duration:5}}>
           <Image src="/Group 7.png" width={600} height={300} alt="icon"/>
-        </div>
+        </motion.div>
       </div>
     </header>
 
 
     <div className="Brands flex items-center justify-center">
-      <div className='flex gap-[20px]'>
+      <div className='grid md:grid-cols-6 grid-cols-2 gap-[20px]'>
         <div>
           <Image src="/Black and White Collection 7.png" width={100} height={100} alt="icon"/>
         </div>
@@ -90,15 +96,16 @@ export default function Home() {
     </div>
 
 
-    <div className='Started mt-[50px] h-[600px] '>
-      <div className='flex justify-around p-3 align-items-center'>
+    <div className='Started mt-[50px] md:h-[600px]  '>
+      <div className='flex justify-around p-3 align-items-center flex-col md:flex-row'>
       <div>
         <h3  className='text-[#A4E2FE] font-extrabold mb-[10px]'>Simple steps to glory</h3>
         <h1 className='text-2xl text-[#010D82] font-extrabold leading-[45px]'>How to get Started?</h1>
         <div className='relative'>
-          <div className='absolute top-[60px] -right-[150px]'>
+          <motion.div className='absolute top-[60px] -right-[150px]'  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1, rotate:360 }}>
           <Image src="/Group 10.png" width={300} height={400} alt="icon"/>
-          </div>
+          </motion.div>
           <div className='absolute -bottom-[80px] -right-[100px]'>
           <Image src="/Group 13.png" width={250} height={400} alt="icon"/>
           </div>
@@ -106,12 +113,12 @@ export default function Home() {
         </div>
       </div>
 
-      <div className='grid grid-cols-2 gap-3'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-3 items-center justify-center mt-[50px] md:mt-0'>
      {
       steps.map((item,index)=>{
         return(
-          <div className='h-[200px] w-[200px] shadow-lg shadow-[#E4E8F4] bg-white p-3 relative' key={index}>
-            <div className='absolute right-0 -top-[10px] bg-[#DEF5FF] rounded-full p-2 w-[20px] h-[30px] flex items-center justify-center'>{item.number}</div>
+          <div className='h-[200px] md:w-[200px] w-[250px] shadow-lg shadow-[#E4E8F4] bg-white p-3 relative' key={index}>
+          
             <div className="bg-[#DEF5FF] p-[2px] w-[30px] flex items-center justify-center"><Image src={item.icon} width={15} height={15} alt="icon"/></div>
             <h1 className='text-[#010D82] font-bold mt-[30px]'>{item.title}</h1>
             <p className='text-sm mt-[20px]'>{item.desc}</p>
@@ -131,7 +138,7 @@ export default function Home() {
 
 
     <div>
-    <div className='flex justify-around p-3 align-items-center mt-[50px] h-[650px] '>
+    <div className='flex justify-around p-3 align-items-center mt-[50px] md:h-[650px] flex-col md:flex-row '>
 
       <div>
       <h3  className='text-[#A4E2FE] font-extrabold mb-[10px]'>We are on a mission</h3>
@@ -146,7 +153,8 @@ export default function Home() {
           </div>
       </div>
 
-    <div>
+    <motion.div initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}>
         
         <div className='relative'>
           
@@ -155,19 +163,19 @@ export default function Home() {
           </div>
           <Image src="/Group 18.png" width={300} height={400} alt="icon"/>
         </div>
-      </div>
+      </motion.div>
       
 
     </div>
     </div>
 
     <div className='bg-white'>
-    <div className='flex justify-around p-3  mt-[0px] h-[650px] flex-col  w-[80%] mx-auto'>
+    <div className='flex justify-around p-3  mt-[0px] md:h-[650px] flex-col  w-[80%] mx-auto'>
     <div><h3  className='text-[#A4E2FE] font-extrabold mb-0'>Pricing</h3>
         <h1 className='text-2xl text-[#010D82] font-extrabold leading-[45px]'>How much to pay</h1>
         <h4 className='text-1xl  mt-[10px] '>You can choose the most app pricing option for your needs.</h4></div>
 
-        <div className='flex gap-[20px] items-center justify-center'>
+        <div className='flex gap-[20px] items-center justify-center flex-col md:flex-row'>
 
           <div className='h-[400px] w-[250px] border-[1px] border-[#010D82] bg-[#F8FBFE] items-center justify-center flex flex-col '>
             <div className='flex flex-col items-center justify-center'>
@@ -273,6 +281,8 @@ export default function Home() {
 
 
     <Contact/>
+
+    <Footer/>
 
      
     </>
