@@ -3,8 +3,10 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import Navbar from "../components/Navbar"
 import Contact from "../components/Contact"
+import Testimonial from "../components/Testimonial"
 import Footer from "../components/Footer"
 import { motion } from "framer-motion"
+
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -36,6 +38,32 @@ export default function Home() {
       icon:"/film.png"
     }
   ]
+  const ulAnimate ={
+    hidden:{
+        opacity:0
+    },
+    visible:{
+        opacity:1,
+        transition:{
+            staggerChildren:0.45,
+            when:"beforeChildren"
+        }
+    }
+}
+
+const liAnimate = {
+  hidden:{
+      opacity:0,
+      x:"-100vw"
+  },
+  visible:{
+      opacity:1,
+      x:0,
+      transition:{
+          duration:0.5
+      }
+  }
+}
   return (
     <>
       <Head>
@@ -47,26 +75,26 @@ export default function Home() {
     <Navbar/>
 
 
-    <header className='md:mt-[50px] bg-[#F8FBFE]'>
+    <header className='md:mt-[80px] bg-[#F8FBFE]'>
       <div className='flex justify-around p-3 flex-col md:flex-row'>
         <div className='mt-[40px]'>
-          <h5 className='text-[#A4E2FE] font-bold mb-[10px]'>Stand out of the crowd</h5>
+          <motion.h5 className='text-[#A4E2FE] font-bold mb-[10px]' animate={{opacity:1}} initial={{opacity:0}} transition={{duration:0.5,delay:1}}>Stand out of the crowd</motion.h5>
           <div>
-            <h1 className='text-4xl text-[#010D82] font-bold leading-[45px]'>Create the Next Gen <br/><span className='relative'>
+            <motion.h1 className='text-4xl text-[#010D82] font-bold leading-[45px]' animate={{x:0}} initial={{x:"100vw"}} transition={{duration:0.5}}>Create the Next Gen <br/><span className='relative'>
               <span className="absolute bottom-0 left-0 mt-[10px]"><Image src="/path2987.png" width={180} height={50} alt="icon"/></span>
               Job Resume
 
-              </span></h1>
+              </span></motion.h1>
 
-            <p className='text-sm mt-[20px] w-[250px] text-[#A1A4B6]'>Get hired quickly by giving your resume the look it deserves</p>
+            <motion.p className='text-sm mt-[20px] w-[250px] text-[#A1A4B6]' animate={{opacity:1}} initial={{opacity:0}} transition={{duration:0.5,delay:1}}>Get hired quickly by giving your resume the look it deserves</motion.p>
           </div>
           <div className='mt-[30px]'>
-      <motion.button className='shadow-md shadow-blue-700 bg-[#010D82] text-white p-2 rounded-md w-[150px]' animate={{y:0}} initial={{y:'-100vw'}} transition={{delay:5}}>Get Started</motion.button>
+      <motion.button className='shadow-md shadow-blue-700 bg-[#010D82] text-white p-2 rounded-md w-[150px]' animate={{x:0}} initial={{x:"-100vw"}} transition={{duration:0.5}}>Get Started</motion.button>
           </div>
         </div>
-        <motion.div animate={{x:0}} initial={{x:"100vw"}} transition={{type:'spring',stiffness:300,duration:5}}>
+        <div>
           <Image src="/Group 7.png" width={600} height={300} alt="icon"/>
-        </motion.div>
+        </div>
       </div>
     </header>
 
@@ -102,32 +130,35 @@ export default function Home() {
         <h3  className='text-[#A4E2FE] font-extrabold mb-[10px]'>Simple steps to glory</h3>
         <h1 className='text-2xl text-[#010D82] font-extrabold leading-[45px]'>How to get Started?</h1>
         <div className='relative'>
-          <motion.div className='absolute top-[60px] -right-[150px]'  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1, rotate:360 }}>
+          <motion.div className='absolute top-[60px] -right-[150px]'  initial={{ opacity: 0,rotate:30 }}
+  whileInView={{ opacity: 1, rotate:360 }} transition={{duration:0.5}}  style={{zIndex:99999}}  viewport={{amount:0.5}}>
           <Image src="/Group 10.png" width={300} height={400} alt="icon"/>
           </motion.div>
-          <div className='absolute -bottom-[80px] -right-[100px]'>
+          <motion.div className='absolute -bottom-[80px] -right-[100px]'  initial={{ opacity: 0,rotate:30 }}
+  whileInView={{ opacity: 1, rotate:360 }} transition={{duration:0.5}}  viewport={{amount:0.5}} style={{zIndex:99999}}>
           <Image src="/Group 13.png" width={250} height={400} alt="icon"/>
-          </div>
-          <Image src="/Group 9.png" width={350} height={400} alt="icon"/>
+          </motion.div>
+          <motion.div  initial={{ opacity: 0,x:200 }} transition={{duration:0.5}} 
+  whileInView={{ opacity: 1, x:0 }} style={{zIndex:5}} viewport={{amount:0.5}}> <Image src="/Group 9.png" width={350} height={400} alt="icon"/></motion.div>
+         
         </div>
       </div>
 
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-3 items-center justify-center mt-[50px] md:mt-0'>
+      <motion.div className='grid grid-cols-1 md:grid-cols-2 gap-3 items-center justify-center mt-[50px] md:mt-0' initial={{opacity:0}} whileInView={{opacity:1}} transition={{staggerChildren:0.45,when:"beforeChildren"}}>
      {
       steps.map((item,index)=>{
         return(
-          <div className='h-[200px] md:w-[200px] w-[250px] shadow-lg shadow-[#E4E8F4] bg-white p-3 relative' key={index}>
+          <motion.div className='h-[200px] md:w-[200px] w-[250px] shadow-lg shadow-[#E4E8F4] bg-white p-3 relative' key={index} initial={{x:-200}} whileInView={{x:0}} transition={{duration:0.3}} viewport={{amount:0.5}}>
           
             <div className="bg-[#DEF5FF] p-[2px] w-[30px] flex items-center justify-center"><Image src={item.icon} width={15} height={15} alt="icon"/></div>
             <h1 className='text-[#010D82] font-bold mt-[30px]'>{item.title}</h1>
             <p className='text-sm mt-[20px]'>{item.desc}</p>
-          </div>
+          </motion.div>
         )
       })
      }
 
-      </div>
+      </motion.div>
 
       </div>
      
@@ -175,9 +206,9 @@ export default function Home() {
         <h1 className='text-2xl text-[#010D82] font-extrabold leading-[45px]'>How much to pay</h1>
         <h4 className='text-1xl  mt-[10px] '>You can choose the most app pricing option for your needs.</h4></div>
 
-        <div className='flex gap-[20px] items-center justify-center flex-col md:flex-row'>
+        <motion.div className='flex gap-[20px] items-center justify-center flex-col md:flex-row' variants={ulAnimate} initial="hidden" whileInView="visible">
 
-          <div className='h-[400px] w-[250px] border-[1px] border-[#010D82] bg-[#F8FBFE] items-center justify-center flex flex-col '>
+          <motion.div className='h-[400px] w-[300px] border-[1px] border-[#010D82] bg-[#F8FBFE] items-center justify-center flex flex-col rounded-md shadow-lg ' variants={liAnimate}>
             <div className='flex flex-col items-center justify-center'>
               <h2 className='font-bold text-[#010D82]'>Basic</h2>
               <div className='flex flex-col items-center justify-center'>
@@ -205,14 +236,14 @@ export default function Home() {
               <div><button className='bg-white border-[1px] border-[#010D82] p-2 mt-[30px] w-[150px] rounded-md shadow-lg shadow-[#E4E8F4] text-sm'>Get Started</button></div>
             </div>
 
-          </div>
+          </motion.div>
 
 
 
 
 
 
-          <div className='h-[400px] w-[250px] border-[1px] border-[#010D82] text-white items-center justify-center flex flex-col bg-[#010D82] '>
+          <motion.div className='h-[400px] w-[300px] border-[1px] border-[#010D82] text-white items-center justify-center flex flex-col bg-[#010D82] rounded-md -mt-[50px] shadow-lg shadow-[#E4E8F4] ' variants={liAnimate}>
             <div className='flex flex-col items-center justify-center'>
               <h2 className='font-bold text-white'>All Rounder</h2>
               <div className='flex flex-col items-center justify-center'>
@@ -240,9 +271,9 @@ export default function Home() {
               <div><button className='bg-white border-[1px] border-[#010D82] p-2 mt-[30px] w-[150px] rounded-md text-[#010D82] text-sm'>Get Started</button></div>
             </div>
 
-          </div>
+          </motion.div>
 
-          <div className='h-[400px] w-[250px] border-[1px] border-[#010D82] bg-[#F8FBFE] items-center justify-center flex flex-col shadow-lg shadow-[#E4E8F4] '>
+          <motion.div className='h-[400px] w-[300px] border-[1px] border-[#010D82] bg-[#F8FBFE] items-center justify-center flex flex-col shadow-lg shadow-[#E4E8F4] rounded-md' variants={liAnimate}>
             <div className='flex flex-col items-center justify-center'>
               <h2 className='font-bold text-[#010D82]'>Basic</h2>
               <div className='flex flex-col items-center justify-center'>
@@ -270,14 +301,18 @@ export default function Home() {
               <div><button className='bg-white border-[1px] border-[#010D82] p-2 mt-[30px] w-[150px] rounded-md shadow-lg shadow-[#E4E8F4] text-sm'>Get Started</button></div>
             </div>
 
-          </div>
+          </motion.div>
 
 
-    </div>
+    </motion.div>
+
+
     </div>
 
     
     </div>
+
+    <Testimonial/>
 
 
     <Contact/>
