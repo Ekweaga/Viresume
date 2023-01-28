@@ -6,6 +6,7 @@ import Contact from "../components/Contact"
 import Testimonial from "../components/Testimonial"
 import Footer from "../components/Footer"
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 
 
@@ -64,6 +65,33 @@ const liAnimate = {
       }
   }
 }
+
+const aboutAnimate = {
+  hidden:{
+    opacity:0
+  },
+  visible:{
+    opacity:1,
+    transition:{
+      staggerChildren:0.45,
+      ease:'easeIn'
+    }
+  }
+}
+
+const liAnimateTwo = {
+  hidden:{
+      opacity:0,
+      y:100
+  },
+  visible:{
+      opacity:1,
+      y:0,
+      transition:{
+          duration:0.8
+      }
+  }
+}
   return (
     <>
       <Head>
@@ -76,11 +104,11 @@ const liAnimate = {
 
 
     <header className='md:mt-[80px] bg-[#F8FBFE]'>
-      <div className='flex justify-around p-3 flex-col md:flex-row'>
+      <div className='flex justify-around p-3  md:flex-row flex-col-reverse'>
         <div className='mt-[40px]'>
           <motion.h5 className='text-[#A4E2FE] font-bold mb-[10px]' animate={{opacity:1}} initial={{opacity:0}} transition={{duration:0.5,delay:1}}>Stand out of the crowd</motion.h5>
           <div>
-            <motion.h1 className='text-4xl text-[#010D82] font-bold leading-[45px]' animate={{x:0}} initial={{x:"100vw"}} transition={{duration:0.5}}>Create the Next Gen <br/><span className='relative'>
+            <motion.h1 className='md:text-4xl text-3xl text-[#010D82] font-bold leading-[45px]' animate={{x:0}} initial={{x:"100vw"}} transition={{duration:0.5}}>Create the Next Gen <br/><span className='relative'>
               <span className="absolute bottom-0 left-0 mt-[10px]"><Image src="/path2987.png" width={180} height={50} alt="icon"/></span>
               Job Resume
 
@@ -89,7 +117,7 @@ const liAnimate = {
             <motion.p className='text-sm mt-[20px] w-[250px] text-[#A1A4B6]' animate={{opacity:1}} initial={{opacity:0}} transition={{duration:0.5,delay:1}}>Get hired quickly by giving your resume the look it deserves</motion.p>
           </div>
           <div className='mt-[30px]'>
-      <motion.button className='shadow-md shadow-blue-700 bg-[#010D82] text-white p-2 rounded-md w-[150px]' animate={{x:0}} initial={{x:"-100vw"}} transition={{duration:0.5}}>Get Started</motion.button>
+     <Link href="Authentication/signup"> <motion.button className='shadow-md shadow-blue-700 bg-[#010D82] text-white p-2 rounded-md w-[150px] hover:bg-[#51C9FF]' animate={{x:0}} initial={{x:"-100vw"}} transition={{duration:0.5}}>Get Started</motion.button></Link>
           </div>
         </div>
         <div>
@@ -148,7 +176,7 @@ const liAnimate = {
      {
       steps.map((item,index)=>{
         return(
-          <motion.div className='h-[200px] md:w-[200px] w-[250px] shadow-lg shadow-[#E4E8F4] bg-white p-3 relative' key={index} initial={{x:-200}} whileInView={{x:0}} transition={{duration:0.3}} viewport={{amount:0.5}}>
+          <motion.div className='h-[200px] md:w-[200px]  shadow-lg shadow-[#E4E8F4] bg-white p-3 relative' key={index} initial={{x:-200}} whileInView={{x:0}} transition={{duration:0.3}} viewport={{amount:0.5}}>
           
             <div className="bg-[#DEF5FF] p-[2px] w-[30px] flex items-center justify-center"><Image src={item.icon} width={15} height={15} alt="icon"/></div>
             <h1 className='text-[#010D82] font-bold mt-[30px]'>{item.title}</h1>
@@ -169,23 +197,23 @@ const liAnimate = {
 
 
     <div>
-    <div className='flex justify-around p-3 align-items-center mt-[50px] md:h-[650px] flex-col md:flex-row '>
+    <motion.div className='flex justify-around p-3 align-items-center mt-[50px] md:h-[650px] flex-col md:flex-row '>
 
-      <div>
-      <h3  className='text-[#A4E2FE] font-extrabold mb-[10px]'>We are on a mission</h3>
-        <h1 className='text-2xl text-[#010D82] font-extrabold leading-[45px]'>About Visume</h1>
-        <h4 className='text-1xl text-[#010D82] mt-[20px] '>Trusted by people around <span className='text-[#F8BDBF] font-extrabold'>38 countries</span></h4>
-        <p className='w-[450px] mt-[20px] text-sm'>With the Gen Z going the video way, the future rectruitement is going to be through video resumes. It saves the HR people a ton of time in screening profiles. And it makes it more human to  present themseleves than plain texts for the employees.
+      <motion.div initial="hidden" whileInView="visible" variants={aboutAnimate}>
+      <motion.h3  className='text-[#A4E2FE] font-extrabold mb-[10px]'  variants={liAnimate} viewport={{amount:0.5}}>We are on a mission</motion.h3>
+        <motion.h1 className='text-2xl text-[#010D82] font-extrabold leading-[45px]'variants={liAnimate} viewport={{amount:0.5}} >About Visume</motion.h1>
+        <motion.h4 viewport={{amount:0.5}} variants={liAnimate} className='text-1xl text-[#010D82] mt-[20px] '>Trusted by people around <span className='text-[#F8BDBF] font-extrabold'>38 countries</span></motion.h4>
+        <motion.p variants={liAnimateTwo} viewport={{amount:0.5}}  className='w-[450px] mt-[20px] text-sm'>With the Gen Z going the video way, the future rectruitement is going to be through video resumes. It saves the HR people a ton of time in screening profiles. And it makes it more human to  present themseleves than plain texts for the employees.
 
-. </p>
-<p className='w-[450px]  text-sm mt-[40px]'>With 20+ years on the video production industry, you’re on the right hands</p>
+. </motion.p>
+<motion.p className='w-[450px]  text-sm mt-[40px]' variants={liAnimate} viewport={{amount:0.5}}>With 20+ years on the video production industry, you’re on the right hands</motion.p>
 <div className='mt-[30px]'>
-      <button className='shadow-md shadow-blue-700 bg-[#010D82] text-white p-2 rounded-md w-[150px]'>Get Started</button>
+      <motion.button className='shadow-md shadow-blue-700 bg-[#010D82] text-white p-2 rounded-md w-[150px]' variants={liAnimateTwo} viewport={{amount:0.5}} >Get Started</motion.button>
           </div>
-      </div>
+      </motion.div>
 
-    <motion.div initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}>
+    <motion.div initial={{ opacity: 0,x:100 }}
+  whileInView={{ opacity: 1,x:0 }} transition={{duration:0.7,ease:'easeInOut'}} className="p-3">
         
         <div className='relative'>
           
@@ -197,7 +225,7 @@ const liAnimate = {
       </motion.div>
       
 
-    </div>
+    </motion.div>
     </div>
 
     <div className='bg-white'>
@@ -243,7 +271,7 @@ const liAnimate = {
 
 
 
-          <motion.div className='h-[400px] w-[300px] border-[1px] border-[#010D82] text-white items-center justify-center flex flex-col bg-[#010D82] rounded-md -mt-[50px] shadow-lg shadow-[#E4E8F4] ' variants={liAnimate}>
+          <motion.div className='h-[400px] w-[300px] border-[1px] border-[#010D82] text-white items-center justify-center flex flex-col bg-[#010D82] rounded-md md:-mt-[50px] shadow-lg shadow-[#E4E8F4] ' variants={liAnimate}>
             <div className='flex flex-col items-center justify-center'>
               <h2 className='font-bold text-white'>All Rounder</h2>
               <div className='flex flex-col items-center justify-center'>

@@ -75,7 +75,7 @@ function Navbar() {
 
   return (
    <>
-   <motion.nav className='text-[#4E57A9] flex justify-around p-4'>
+   <motion.nav className='text-[#4E57A9] flex md:justify-around p-4'>
     <div>
         <Image src="/Group 8.png" width={100} height={150} alt="icon"/>
 

@@ -83,10 +83,10 @@ function Footer() {
 Coimbatore - 638186
 Tamil Nadu, India.</p>
 <div className='flex gap-[20px] mt-[30px]'>
-<Image src="/twitter.png" width={20} height={30} alt="icon"/>
-<Image src="/facebook.png" width={20} height={30} alt="icon"/>
-<Image src="/instagram.png" width={20} height={30} alt="icon"/>
-<Image src="/linkedin.png" width={20} height={30} alt="icon"/>
+<motion.div variants={sub}><Image src="/twitter.png" width={20} height={30} alt="icon"/></motion.div>
+<motion.div variants={sub}><Image src="/facebook.png" width={20} height={30} alt="icon"/></motion.div>
+<motion.div variants={sub}><Image src="/instagram.png" width={20} height={30} alt="icon"/></motion.div>
+<motion.div variants={sub}><Image src="/linkedin.png" width={20} height={30} alt="icon"/></motion.div>
 </div>
         </div>
 
