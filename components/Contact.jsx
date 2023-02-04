@@ -66,7 +66,7 @@ function Contact() {
         <h3>Lets talk</h3>
         <h2 className='text-[#010D82] font-extrabold text-2xl'>We are here to help you !</h2>
     </div>
-    <motion.div className='bg-[#51C9FF] w-[800px] md:h-[500px] mt-[30px] rounded-2xl flex flex-col items-center justify-center gap-[30px] p-4' variants={formAnimate} initial="hidden" whileInView="visible" viewport={{amount:0.5}}>
+    <motion.div className='bg-[#51C9FF] md:w-[800px] md:h-[500px] mt-[30px] rounded-2xl flex flex-col items-center justify-center gap-[30px] p-4' variants={formAnimate} initial="hidden" whileInView="visible" viewport={{amount:0.5}}>
 
         <div className='flex gap-[20px] flex-col md:flex-row'>
            <motion.div variants={inputAnimateOne}> <input type="email" placeholder="Email" className='p-2 h-[50px] rounded-lg w-[280px]'/></motion.div>

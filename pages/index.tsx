@@ -103,12 +103,12 @@ const liAnimateTwo = {
     <Navbar/>
 
 
-    <header className='md:mt-[80px] bg-[#F8FBFE]'>
+    <header className='md:mt-[80px] bg-[#F8FBFE] mt-[100px]'>
       <div className='flex justify-around p-3  md:flex-row flex-col-reverse'>
         <div className='mt-[40px]'>
           <motion.h5 className='text-[#A4E2FE] font-bold mb-[10px]' animate={{opacity:1}} initial={{opacity:0}} transition={{duration:0.5,delay:1}}>Stand out of the crowd</motion.h5>
           <div>
-            <motion.h1 className='md:text-4xl text-3xl text-[#010D82] font-bold leading-[45px]' animate={{x:0}} initial={{x:"100vw"}} transition={{duration:0.5}}>Create the Next Gen <br/><span className='relative'>
+            <motion.h1 className='md:text-4xl text-3xl text-[#2d2d2d] font-bold leading-[45px]' animate={{x:0}} initial={{x:"100vw"}} transition={{duration:0.5}}>Create the Next Gen <br/><span className='relative'>
               <span className="absolute bottom-0 left-0 mt-[10px]"><Image src="/path2987.png" width={180} height={50} alt="icon"/></span>
               Job Resume
 
@@ -158,16 +158,16 @@ const liAnimateTwo = {
         <h3  className='text-[#A4E2FE] font-extrabold mb-[10px]'>Simple steps to glory</h3>
         <h1 className='text-2xl text-[#010D82] font-extrabold leading-[45px]'>How to get Started?</h1>
         <div className='relative'>
-          <motion.div className='absolute top-[60px] -right-[150px]'  initial={{ opacity: 0,rotate:30 }}
+          <motion.div className='absolute md:top-[60px] md:-right-[150px] -right-[40px] top-[40px]'  initial={{ opacity: 0,rotate:30 }}
   whileInView={{ opacity: 1, rotate:360 }} transition={{duration:0.5}}  style={{zIndex:99999}}  viewport={{amount:0.5}}>
           <Image src="/Group 10.png" width={300} height={400} alt="icon"/>
           </motion.div>
-          <motion.div className='absolute -bottom-[80px] -right-[100px]'  initial={{ opacity: 0,rotate:30 }}
+          <motion.div className='absolute md:-bottom-[80px] md:-right-[100px] -bottom-[80px] right-0'  initial={{ opacity: 0,rotate:30 }}
   whileInView={{ opacity: 1, rotate:360 }} transition={{duration:0.5}}  viewport={{amount:0.5}} style={{zIndex:99999}}>
           <Image src="/Group 13.png" width={250} height={400} alt="icon"/>
           </motion.div>
           <motion.div  initial={{ opacity: 0,x:200 }} transition={{duration:0.5}} 
-  whileInView={{ opacity: 1, x:0 }} style={{zIndex:5}} viewport={{amount:0.5}}> <Image src="/Group 9.png" width={350} height={400} alt="icon"/></motion.div>
+  whileInView={{ opacity: 1, x:0 }} style={{zIndex:5}} viewport={{amount:0.5}}> <Image src="/Group 9.png" width={300} height={400} alt="icon"/></motion.div>
          
         </div>
       </div>
@@ -176,11 +176,11 @@ const liAnimateTwo = {
      {
       steps.map((item,index)=>{
         return(
-          <motion.div className='h-[200px] md:w-[200px]  shadow-lg shadow-[#E4E8F4] bg-white p-3 relative' key={index} initial={{x:-200}} whileInView={{x:0}} transition={{duration:0.3}} viewport={{amount:0.5}}>
+          <motion.div className='h-[200px] md:w-[200px]  ml-[10px] md:ml-0  shadow-lg shadow-[#E4E8F4] bg-white md:p-3 relative flex items-center justify-center flex-col' key={index} initial={{x:-200}} whileInView={{x:0}} transition={{duration:0.3}} viewport={{amount:0.5}}>
           
             <div className="bg-[#DEF5FF] p-[2px] w-[30px] flex items-center justify-center"><Image src={item.icon} width={15} height={15} alt="icon"/></div>
             <h1 className='text-[#010D82] font-bold mt-[30px]'>{item.title}</h1>
-            <p className='text-sm mt-[20px]'>{item.desc}</p>
+            <p className='text-sm mt-[20px] text-center'>{item.desc}</p>
           </motion.div>
         )
       })
@@ -199,14 +199,14 @@ const liAnimateTwo = {
     <div>
     <motion.div className='flex justify-around p-3 align-items-center mt-[50px] md:h-[650px] flex-col md:flex-row '>
 
-      <motion.div initial="hidden" whileInView="visible" variants={aboutAnimate}>
+      <motion.div initial="hidden" whileInView="visible" variants={aboutAnimate} className="p-2">
       <motion.h3  className='text-[#A4E2FE] font-extrabold mb-[10px]'  variants={liAnimate} viewport={{amount:0.5}}>We are on a mission</motion.h3>
         <motion.h1 className='text-2xl text-[#010D82] font-extrabold leading-[45px]'variants={liAnimate} viewport={{amount:0.5}} >About Visume</motion.h1>
         <motion.h4 viewport={{amount:0.5}} variants={liAnimate} className='text-1xl text-[#010D82] mt-[20px] '>Trusted by people around <span className='text-[#F8BDBF] font-extrabold'>38 countries</span></motion.h4>
-        <motion.p variants={liAnimateTwo} viewport={{amount:0.5}}  className='w-[450px] mt-[20px] text-sm'>With the Gen Z going the video way, the future rectruitement is going to be through video resumes. It saves the HR people a ton of time in screening profiles. And it makes it more human to  present themseleves than plain texts for the employees.
+        <motion.p variants={liAnimateTwo} viewport={{amount:0.5}}  className='md:w-[450px] mt-[20px] text-sm'>With the Gen Z going the video way, the future rectruitement is going to be through video resumes. It saves the HR people a ton of time in screening profiles. And it makes it more human to  present themseleves than plain texts for the employees.
 
 . </motion.p>
-<motion.p className='w-[450px]  text-sm mt-[40px]' variants={liAnimate} viewport={{amount:0.5}}>With 20+ years on the video production industry, you’re on the right hands</motion.p>
+<motion.p className='md:w-[450px]  text-sm mt-[40px]' variants={liAnimate} viewport={{amount:0.5}}>With 20+ years on the video production industry, you’re on the right hands</motion.p>
 <div className='mt-[30px]'>
       <motion.button className='shadow-md shadow-blue-700 bg-[#010D82] text-white p-2 rounded-md w-[150px]' variants={liAnimateTwo} viewport={{amount:0.5}} >Get Started</motion.button>
           </div>
@@ -217,9 +217,10 @@ const liAnimateTwo = {
         
         <div className='relative'>
           
-          <div className='absolute top-[120px] -left-[100px]'>
+          <motion.div className='absolute md:top-[120px] md:-left-[100px] -left-[50px] top-[140px]'  initial={{ opacity: 0,rotate:30 }}
+  whileInView={{ opacity: 1, rotate:360 }} transition={{duration:0.5}}  viewport={{amount:0.5}} style={{zIndex:99999}}>
           <Image src="/Group 13 (1).png" width={250} height={400} alt="icon"/>
-          </div>
+          </motion.div>
           <Image src="/Group 18.png" width={300} height={400} alt="icon"/>
         </div>
       </motion.div>
